@@ -1,0 +1,27 @@
+@mixin flex ($flex-type:flex, $flex-direction:row, $justify-contant:space-between, $align-items:stretch, $flex-num:0 1 auto, $overflow: visible) {
+	display: $flex-type;
+	flex-firection: $flex-direction;
+	justify-content: $justify-content;
+	align-item: $align-items;
+	flex: $flex-num;
+	overflow: $overflow;
+}
+
+$width-xs: 767px;
+$width-sm: 991px;
+$width-md: 1199px;
+$width-xl: 1200px;
+@mixin viveport ($width) {
+	@if $width==xl-screens {
+		@media only screen and (min-width: $width-xl){@content;}
+	}
+	@else if $width==md-screens {
+		@media only screen and (max-width: $width-md){@content;}
+	}
+	@else if $width==sm-screens {
+		@media only screen and (max-width: $width-sm){@content;}
+	}
+	@else if $width==xs-sceens {
+		@media only screen and (max-width: $width-sm){@content}
+	}
+}
